@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_fake_report_day_form" model="ir.ui.view">
+        <field name="name">pos.fake.report.day.form</field>
+        <field name="model">pos.fake.report.day</field>
+        <field name="arch" type="xml">
+            <form string="Under-stated Report day">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="value" widget="percentage"/>
+                        <field name="active" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pos_fake_report_day_tree" model="ir.ui.view">
+        <field name="name">pos.fake.report.day.tree</field>
+        <field name="model">pos.fake.report.day</field>
+        <field name="arch" type="xml">
+            <tree string="Under-stated Report Day" create="1" delete="1">
+                <field name="name" />
+                <field name="value" widget="percentage"/>
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_pos_fake_report_day" model="ir.actions.act_window">
+        <field name="name">Under-stated days</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.fake.report.day</field>
+        <field name="context">{'active_test': False}</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_pos_fake_report_day"
+        name="POS Fake Report Days"
+        parent="point_of_sale.menu_point_config_product"
+        sequence="10"
+        action="action_pos_fake_report_day"
+        groups="point_of_sale.group_pos_manager"/>
+</odoo>

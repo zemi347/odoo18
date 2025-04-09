@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="pos_config_view_form_pos_sale" model="ir.ui.view">
+            <field name="name">pos.config.form.pos.fake.report</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+              <div id="category_reference" position="after">
+                  <div class="col-xs-12 col-md-6 o_setting_box">
+                      <div class="o_setting_left_pane">
+                          <field name="allow_pos_fake_report"/>
+                      </div>
+                      <div class="o_setting_right_pane">
+                          <label for="allow_pos_fake_report"/>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="pos_fake_report_percentage" string="Pos Fake Report Percentage" />
+                            <div class="text-muted">
+                                Set percentage to be understate in the POS fake report
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="pos_fake_report_percentage" colspan="4"/>
+                            </div>
+                        </div>
+                  </div>
+                  <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="pos_fake_report_days" string="Pos Fake Report Days" />
+                            <div class="text-muted">
+                                Set of days that will be used in POS fake report
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="pos_fake_report_days" colspan="4" widget="selection"/>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+            </field>
+      </record>
+    </data>
+</odoo>

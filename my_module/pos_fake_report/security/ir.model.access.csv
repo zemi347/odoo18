@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+pos_fake_report.access_pos_details_wizard_fake,access_pos_details_wizard_fake,pos_fake_report.model_pos_details_wizard_fake,base.group_user,1,1,1,1
+pos_fake_report.access_pos_fake_report_day,access_pos_fake_report_day,pos_fake_report.model_pos_fake_report_day,base.group_user,1,1,1,1

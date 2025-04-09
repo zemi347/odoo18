@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_pos_details_wizard" model="ir.ui.view">
+            <field name="name">pos.details.wizard.form</field>
+            <field name="model">pos.details.wizard.fake</field>
+            <field name="arch" type="xml">
+                <form string="Sales Details">
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                    <group>
+                        <field name="pos_config_ids" mode="tree" colspan="4" nolabel="1" />
+                    </group>
+                    <footer>
+                        <button name="generate_report" string="Print" type="object" class="btn-primary" data-hotkey="q"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_report_pos_details_fake" model="ir.actions.act_window">
+            <field name="name">Sales Report</field>
+            <field name="res_model">pos.details.wizard.fake</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+	        <menuitem id="menu_report_order_details_fake" name="Sales Report" action="action_report_pos_details_fake"
+                  parent="point_of_sale.menu_point_rep" sequence="5"/>
+
+        <record id="group_system_sub_admin" model="res.groups">
+            <field name="name">System Admin</field>
+            <field name="category_id" ref="base.module_category_sales_point_of_sale"/>
+        </record>
+
+        <record model="ir.ui.menu" id="point_of_sale.menu_report_order_details">
+          <field name="groups_id" eval="[(6,0,[ref('pos_fake_report.group_system_sub_admin')])]"/>
+        </record>
+</odoo>
